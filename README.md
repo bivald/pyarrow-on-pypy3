@@ -17,3 +17,31 @@ Run `make dist` and it should build docker container and copy wheel files into `
 
 ## Wheels
 You can also grab the wheel from the wheels folder if you just want the wheel (and don't care about building it yourself)
+
+## Runtime dependencies
+The following dependencies are required to run this pyarrow build:
+
+```
+apt-get install -y libjemalloc-dev libboost-dev \
+                   libboost-filesystem-dev \
+                   libboost-system-dev \
+                   libboost-regex-dev \
+                   libgoogle-glog-dev   \
+                   libsnappy-dev \
+                   libbrotli-dev \
+                   libssl-dev
+```
+
+If you don't have them `pandas` will give an error saying you don't have pyarrow installed.
+You can check that everything works by running:
+
+```
+import arrow
+print(arrow._parquet)
+```
+
+## Sample usage
+```
+pypy3 -m pip install --extra-index https://antocuni.github.io/pypy-wheels/manylinux2010 numpy pandas pyarrow-0.15.0a0-pp36-pypy36_pp73-linux_x86_64.whl
+pypy3 -c "import pandas as pd; pd.read_parquet('file.parq')"
+```
