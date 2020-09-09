@@ -1,0 +1,23 @@
+[ 94%] Building CXX object src/arrow/python/CMakeFiles/arrow_python_objlib.dir/arrow_to_pandas.cc.o
+In file included from /arrow/cpp/src/arrow/python/arrow_to_pandas.cc:53:
+/arrow/cpp/src/arrow/python/datetime.h:34: warning: "PyDateTimeAPI" redefined
+ #define PyDateTimeAPI ::arrow::py::internal::datetime_api
+
+In file included from /opt/pypy/include/Python.h:144,
+                 from /arrow/cpp/src/arrow/python/platform.h:23,
+                 from /arrow/cpp/src/arrow/python/numpy_interop.h:20,
+                 from /arrow/cpp/src/arrow/python/arrow_to_pandas.cc:20:
+/opt/pypy/include/pypy_decl.h:1107: note: this is the location of the previous definition
+ #define PyDateTimeAPI PyPyDateTimeAPI
+
+In file included from /arrow/cpp/src/arrow/python/arrow_to_pandas.cc:52:
+/arrow/cpp/src/arrow/python/common.h: In member function ‘arrow::Status arrow::py::PyBytesView::FromBinary(PyObject*, const char*)’:
+/arrow/cpp/src/arrow/python/common.h:256:31: error: ‘PyMemoryView_GetContiguous’ was not declared in this scope
+       PyObject* contig_view = PyMemoryView_GetContiguous(obj, PyBUF_READ, 'C');
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/arrow/cpp/src/arrow/python/common.h:256:31: note: suggested alternative: ‘PyMemoryView_FromMemory’
+       PyObject* contig_view = PyMemoryView_GetContiguous(obj, PyBUF_READ, 'C');
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~~
+                               PyMemoryView_FromMemory
+make[2]: *** [src/arrow/python/CMakeFiles/arrow_python_objlib.dir/build.make:82: src/arrow/python/CMakeFiles/arrow_python_objlib.dir/arrow_to_pandas.cc.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:1628: src/arrow/python/CMakeFiles/arrow_python_objlib.dir/all] Error 2
