@@ -40,6 +40,17 @@ import arrow
 print(arrow._parquet)
 ```
 
+If the runtime dependencies are *not* installed you will see errors such as:
+
+```
+>>>> import pyarrow
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/opt/pypy/site-packages/pyarrow/__init__.py", line 49, in <module>
+    from pyarrow.lib import cpu_count, set_cpu_count
+ImportError: libglog.so.0: cannot open shared object file: No such file or directory
+```
+
 ## Sample usage
 ```
 pypy3 -m pip install --extra-index https://antocuni.github.io/pypy-wheels/manylinux2010 numpy pandas pyarrow-0.15.0a0-pp36-pypy36_pp73-linux_x86_64.whl
