@@ -26,7 +26,7 @@ RUN wget https://buildbot.pypy.org/nightly/py3.6/pypy-c-jit-latest-linux64.tar.b
     && bzip2 -d *.bz2 \
     && tar -xvf *.tar \
     && rm -r /opt/pypy \
-    && mv pypy-c-jit-100282-a822530c6ce5-linux64 /opt/pypy
+    && mv pypy-c-jit-100310-67519968cca7-linux64 /opt/pypy
 
 RUN /opt/pypy/bin/pypy3 -m ensurepip && pypy3 -m pip install virtualenv && \
 	virtualenv /pyarrow
