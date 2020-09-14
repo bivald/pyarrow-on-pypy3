@@ -58,6 +58,12 @@ RUN wget https://github.com/apache/arrow/archive/apache-arrow-1.0.1.zip \
 		-DARROW_BUILD_ORC=off \
 		-DARROW_BUILD_PARQUET=on \
 		-DARROW_BUILD_PLASMA=off \
+		-DARROW_WITH_BZ2=ON \
+        -DARROW_WITH_ZLIB=ON \
+        -DARROW_WITH_ZSTD=ON \
+        -DARROW_WITH_LZ4=ON \
+        -DARROW_WITH_SNAPPY=ON \
+        -DARROW_WITH_BROTLI=ON \
 		-DARROW_BUILD_S3=off \
 		-DARROW_BUILD_HDFS=off \
 		-DARROW_USE_TENSORFLOW=off \
