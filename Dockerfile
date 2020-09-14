@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y build-essential libjemalloc-dev libboos
                        nano \
                        bzip2
 
-RUN wget https://buildbot.pypy.org/nightly/py3.6/pypy-c-jit-latest-linux64.tar.bz2 \
+RUN wget https://buildbot.pypy.org/nightly/py3.6/pypy-c-jit-100310-67519968cca7-linux64.tar.bz2 \
     && bzip2 -d *.bz2 \
     && tar -xvf *.tar \
     && rm -r /opt/pypy \
@@ -46,6 +46,8 @@ RUN wget https://github.com/apache/arrow/archive/apache-arrow-1.0.1.zip \
 	&& export LD_LIBRARY_PATH=$(pwd)/dist/lib:$LD_LIBRARY_PATH \
 	&& mkdir /arrow/cpp/build \
 	&& cd /arrow/cpp/ \
+	&& wget https://gist.githubusercontent.com/mattip/c9c8398b58721ae5893dc8134c353f28/raw/0daff3e11ceed6dcde485a56e6b8bd2b7ca48bbc/gistfile1.txt \
+	&& patch < gistfile1.txt  -p2 \
 	&& cmake \
 		-DCMAKE_INSTALL_PREFIX=$ARROW_HOME \
 		-DCMAKE_INSTALL_LIBDIR=lib \
