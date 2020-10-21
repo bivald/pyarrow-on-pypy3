@@ -36,9 +36,9 @@ RUN /pyarrow/bin/pip -vvvv install numpy>=1.1 cython hypothesis pandas --extra-i
 RUN /pyarrow/bin/pip install cmake twine
 
 WORKDIR /
-RUN wget https://github.com/apache/arrow/archive/apache-arrow-1.0.1.zip \
-	&& unzip apache-arrow-1.0.1.zip \
-	&& mv arrow-apache-arrow-1.0.1 arrow \
+RUN wget https://github.com/apache/arrow/archive/apache-arrow-2.0.0.zip \
+	&& unzip apache-arrow-2.0.0.zip \
+	&& mv arrow-apache-arrow-2.0.0 arrow \
 	&& cd arrow \
 	&& . /pyarrow/bin/activate \
 	&& /pyarrow/bin/pip install -r /arrow/python/requirements-build.txt \
