@@ -13,7 +13,7 @@ help:
 
 build: ## Build docker image which includes the whl file
 	@echo "Building docker container and wheel" \
-	&& docker build -t pyarrow-on-pypy3 .
+	&& docker build -t pyarrow-on-pypy38 .
 
 extract: ## Copy the whl file into ./dist
 	@echo "Replacing the current dist folder with data from the docker container" \
