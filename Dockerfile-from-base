@@ -1,4 +1,7 @@
+ARG test
 FROM pyarrow-on-pypy
+
+RUN ls -lah /
 
 WORKDIR /
 RUN wget https://github.com/apache/arrow/archive/58e6a768bcc2a3d94dc971f540f8e9daed73a524.zip -O apache-arrow.zip \
@@ -42,8 +45,8 @@ RUN wget https://github.com/apache/arrow/archive/58e6a768bcc2a3d94dc971f540f8e9d
 	&& make install
 
 RUN cd /arrow/python/ \
-	&& export PYARROW_WITH_PARQUET=1 \
-	&& 	PYARROW_WITH_PARQUET=1 \
+	&& 	CMAKE_PREFIX_PATH=/arrow/dist/${CMAKE_PREFIX_PATH:+:${CMAKE_PREFIX_PATH}} \
+        PYARROW_WITH_PARQUET=1 \
 		ARROW_HOME=/arrow/dist/ \
 		PARQUET_HOME=/arrow/dist/ \
 		ARROW_PYTHON_INCLUDE_DIR=/arrow/cpp/src/arrow/ \
