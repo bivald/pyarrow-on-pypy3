@@ -1,4 +1,4 @@
-FROM docker.io/library/pyarrow-on-pypy3
+FROM pyarrow-on-pypy
 
 WORKDIR /
 RUN wget https://github.com/apache/arrow/archive/58e6a768bcc2a3d94dc971f540f8e9daed73a524.zip -O apache-arrow.zip \

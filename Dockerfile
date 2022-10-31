@@ -34,5 +34,4 @@ RUN /opt/pypy/bin/pypy3 -m ensurepip && pypy3 -m pip install --upgrade pip virtu
 
 RUN /pyarrow/bin/pip -vvvv install numpy cython hypothesis pandas
 
-
-RUN /pyarrow/bin/pip install cmake twine
+RUN /pyarrow/bin/pip install cmake
